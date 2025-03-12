@@ -9,7 +9,7 @@ export class ApiService {
   
 
 
-  private apiUrl = 'http://backend-qtap.vercel.app/api';
+  private apiUrl = 'https://backend-qtap.vercel.app/api';
   
   constructor(private http: HttpClient) { }
 
