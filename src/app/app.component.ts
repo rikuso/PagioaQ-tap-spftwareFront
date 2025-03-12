@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FotterComponent } from './fotter/fotter.component';
 import { isPlatformBrowser } from '@angular/common';
@@ -12,6 +13,7 @@ import 'aos/dist/aos.css';
   imports: [
     RouterOutlet,
     RouterLink,
+    RouterModule,
     HeaderComponent,
     FotterComponent,
   ],
@@ -19,7 +21,7 @@ import 'aos/dist/aos.css';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: object,private activatedRoute: ActivatedRoute) {}
   
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {

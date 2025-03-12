@@ -24,11 +24,6 @@ export class HeroServicesComponent implements OnInit {
         // Buscar el servicio que coincida con this.titles
         this.selectedService = this.services.find(service => service.title === this.titles) || null;
 
-        if (this.selectedService) {
-          console.log('Servicio encontrado:', this.selectedService);
-        } else {
-          console.warn('No se encontró un servicio con el título:', this.titles);
-        }
       },
       error: (err) => {
         console.error('Error obteniendo datos:', err);

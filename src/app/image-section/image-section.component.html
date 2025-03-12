@@ -28,21 +28,34 @@
     <div class="image-container">
       <div class="card" data-aos="fade-up" data-aos-delay="300">
         <a [routerLink]="['/servicios']">
-          <img [src]="services[0].image_url" alt="Left Image" class="left-image" data-aos="zoom-in">
+          @if (services && services.length > 0) {
+            <img [src]="services[0].image_url" alt="Left Image" class="left-image" data-aos="zoom-in">
+          } @else {
+            <div class="placeholder">Cargando...</div>
+          }
         </a>
       </div>
       <div class="right-images">
         <div class="card" data-aos="fade-up" data-aos-delay="400">
           <a [routerLink]="['/servicios']">
-            <img [src]="services[1].image_url" alt="Top Right Image" class="top-right-image" data-aos="zoom-in">
+            @if (services && services.length > 1) {
+              <img [src]="services[1].image_url" alt="Top Right Image" class="top-right-image" data-aos="zoom-in">
+            } @else {
+              <div class="placeholder">Cargando...</div>
+            }
           </a>
         </div>
         <div class="card" data-aos="fade-up" data-aos-delay="500">
           <a [routerLink]="['/servicios']">
-            <img [src]="services[3].image_url" alt="Bottom Right Image" class="bottom-right-image" data-aos="zoom-in">
+            @if (services && services.length > 3) {
+              <img [src]="services[3].image_url" alt="Bottom Right Image" class="bottom-right-image" data-aos="zoom-in">
+            } @else {
+              <div class="placeholder">Cargando...</div>
+            }
           </a>
         </div>
       </div>
     </div>
   </section>
+  
 </section>

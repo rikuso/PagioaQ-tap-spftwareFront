@@ -10,16 +10,22 @@ import { RouterModule } from '@angular/router';
   styleUrl: './image-section.component.css'
 })
 export class ImageSectionComponent implements OnInit {
-  services: any[] = [];
+  services: { image_url: string }[] = []; // Tipado más estricto
   constructor(private apiServices : ApiService) {}
   ngOnInit() {
     this.apiServices.getServicios().subscribe({
       next: (data) => {
         this.services = Array.isArray(data) ? data : [];
-        console.log('Datos obtenidos:', this.services); // Depuración
+        if (this.services.length < 4) {
+          console.warn('No hay suficientes servicios. Se requieren al menos 4 elementos.');
+        }
+        this.services.forEach((service, index) => {
+          if (!service?.image_url) {
+            console.warn(`El servicio en el índice ${index} no tiene image_url`);
+          }
+        });
       },
-      error: (err) => console.error('Error al obtener datos:', err)
+      error: (err) => console.error('Error al obtener datos:', err),
     });
   }
-
 }
