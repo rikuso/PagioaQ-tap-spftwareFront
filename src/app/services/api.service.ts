@@ -9,7 +9,7 @@ export class ApiService {
   
   //private apiUrl = 'http://localhost:3000/api'; Cambia esto a la URL de tu backend
 
-  private apiUrl = 'backend-qtap.vercel.app/api'
+  private apiUrl = ''http://backend-qtap.vercel.app/api'
   constructor(private http: HttpClient) { }
 
   getData(): Observable<any[]> { 
