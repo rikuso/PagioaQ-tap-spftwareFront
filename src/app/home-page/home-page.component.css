@@ -1,0 +1,47 @@
+/* Contenedor principal */
+.main-container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Asegura que todo se alinee desde arriba */
+}
+
+/* Estilos para el logo */
+app-logo {
+  width: 150px; /* Ajusta el tamaño del logo */
+  height: auto;
+  margin-top: 20px; /* Da espacio arriba del logo */
+  z-index: 10; /* Asegura que esté visible */
+}
+
+/* Estilos para hero */
+app-hero {
+  width: 100%;
+  min-height: 60vh;
+  position: relative;
+}
+
+/* Sección 1 */
+app-seccion1 {
+  width: 100%;
+  min-height: 40vh;
+  position: relative;
+}
+
+/* 📌 RESPONSIVE - Ajustes en pantallas pequeñas */
+@media (max-width: 768px) {
+  app-logo {
+      width: 120px; /* Reduce el tamaño del logo en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  app-logo {
+      width: 100px; /* Aún más pequeño en pantallas muy pequeñas */
+      margin-top: 10px; /* Menos espacio arriba */
+  }
+}

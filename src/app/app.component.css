@@ -1,0 +1,12 @@
+/* Estilos para el header */
+.header-container {
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para separar el header del contenido */
+}
+
+app-header {
+  width: 100%;
+  background-color: white; /* Asegura que el header tenga un fondo sólido */
+}
+
+

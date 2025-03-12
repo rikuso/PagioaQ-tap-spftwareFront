@@ -1,0 +1,248 @@
+/* seccion-services.component.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+/* Contenedor principal con diseño de cuadrícula */
+.seccion-services-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+  grid-template-rows: auto auto; /* Dos filas */
+  gap: 20px; /* Espacio entre las secciones */
+  padding: 20px; /* Espaciado interno */
+  min-height: 100vh; /* Ocupar altura completa */
+}
+
+.seccion-descripcion h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem; /* Tamaño llamativo */
+  font-weight: 600; /* Negrita */
+  color: #007bff; /* Azul profesional */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.seccion-descripcion p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem; /* Ligeramente más grande */
+  font-weight: 400;
+  color: #333; /* Color oscuro para mejor legibilidad */
+  line-height: 1.6; /* Espaciado para lectura cómoda */
+  text-align: justify;
+  max-width: 90%;
+}
+/* Estilos para cada item */
+.seccion-services-item {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos de etiquetas del menú */
+.menu-label {
+  background-color: #fff;
+  border-radius: 45px;
+  padding: 10px 20px;
+  color: #000;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+  display: inline-block;
+  border: 2px solid transparent;
+}
+
+.menu-label:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+/* Estilo para el servicio activo/seleccionado */
+.menu-label.active {
+  background-color: #007bff;
+  color: white;
+  border: 2px solid #0056b3;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Estilos de imagen */
+.seccion-services-item img {
+  max-width: 100%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.seccion-services-item img:hover {
+  transform: scale(1.02);
+}
+
+/* Tarjeta de contacto */
+.card {
+  width: 100%;
+  max-width: 350px;
+  background: #000;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card b {
+  position: absolute;
+  inset: 6px;
+  background: rgba(0, 0, 0, 0.1); 
+  z-index: 2;
+  border-radius: 10px;
+}
+
+.card .content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+}
+
+.content .title {
+  font-weight: 600;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.content .title span {
+  font-weight: 300;
+  font-size: 0.9em;
+  display: block;
+  margin-top: 5px;
+  color: #ffffff;
+}
+
+.contact-btn {
+  background: #fff;
+  color: #222;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.content .sci {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.sci li {
+  list-style: none;
+}
+
+.sci li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: 0.3s;
+  font-size: 1.2em;
+}
+
+.sci li a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* 🟢 MEDIA QUERIES PARA HACERLO RESPONSIVE */
+
+/* 📱 Móviles (menos de 768px) */
+@media screen and (max-width: 768px) {
+  .seccion-services-container {
+    grid-template-columns: 1fr; /* Una sola columna en móviles */
+    grid-template-rows: auto;
+    gap: 15px;
+  }
+
+  .seccion-services-item {
+    padding: 15px;
+  }
+
+  /* Establecer el orden en dispositivos móviles */
+  .seccion-servicios {
+    order: 1; /* Primero */
+  }
+
+  .seccion-imagen {
+    order: 2; /* Segundo */
+  }
+
+  .seccion-descripcion {
+    order: 3; /* Tercero */
+  }
+
+  .seccion-contacto {
+    order: 4; /* Último, como se solicitó */
+  }
+
+  .menu-label {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .sci li a {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* 📲 Tablets (768px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .seccion-services-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .seccion-services-item {
+    padding: 18px;
+  }
+}
+
+/* Ajustes para pantallas más grandes */
+@media screen and (min-width: 1025px) {
+  .seccion-services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,209 @@
+/* 🔹 HEADER GENERAL */
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* 🔹 LOGO */
+.custom-logo {
+  width: 110px;
+  max-height: 110px;
+  
+  transition: all 0.3s ease;
+}
+
+/* 🔹 MENÚ DE OPCIONES */
+.custom-navbar-start {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* 🔹 ESTILOS PARA LOS ENLACES DEL MENÚ */
+.custom-navbar-item {
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* Evita que los textos se partan en varias líneas */
+}
+
+.custom-navbar-item:hover {
+  color: #007BFF;
+}
+
+/* ⚡ RESPONSIVE: Ajustes para pantallas pequeñas (tablets y celulares) */
+@media (max-width: 1024px) {
+  .custom-navbar {
+    padding: 10px;
+  }
+
+  .custom-logo {
+    width: 90px;
+    max-height: 90px;
+  }
+
+  /* 🔹 MENÚ HAMBURGUESA */
+  .navbar-burger {
+    display: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    top: 15px;
+  right: 15px;
+    z-index: 102; /* Asegura que esté por encima del menú */
+  }
+
+  .navbar-burger span {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transition: all 0.3s ease;
+  }
+
+  /* 🔹 MENÚ DESPLEGABLE */
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px;
+    text-align: center;  
+    z-index: 101; /* Debe estar por debajo del navbar-burger */
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* 🔹 MOSTRAR MENÚ CUANDO ESTÉ ACTIVO */
+  .navbar-menu.is-active {
+    display: flex;
+  }
+
+  /* 🔹 ESTILOS MEJORADOS PARA EL MENÚ EN CELULAR */
+  .custom-navbar-start {
+    display: flex;
+    flex-direction: column; /* Acomoda los textos en una sola columna */
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  /* 🔹 ENLACES DEL MENÚ EN CELULAR */
+  .custom-navbar-item {
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 90%; /* Que ocupe casi toda la pantalla */
+    text-align: center;
+    white-space: normal; /* Permite que el texto se acomode */
+    word-wrap: break-word; /* Si el texto es muy largo, se ajusta */
+  }
+
+  /* 🔹 ANIMACIÓN DEL MENÚ HAMBURGUESA AL ABRIR */
+  .navbar-burger.is-active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar-burger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-burger.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+/* 🔹 MENÚ DESPLEGABLE EN CELULAR */
+@media (max-width: 500px) {
+  .custom-navbar {
+    padding: 10px;
+    justify-content: space-between; /* Asegura que el logo y el menú hamburguesa no se superpongan */
+  }
+
+  .custom-logo {
+    width: 80px;
+    max-height: 80px;
+  }
+
+  /* 🔹 ESTILOS MEJORADOS PARA EL MENÚ HAMBURGUESA */
+  .navbar-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 101; /* Asegura que esté encima del menú */
+  }
+
+  .navbar-burger span {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transition: all 0.3s ease;
+  }
+
+  /* 🔹 MENÚ DESPLEGABLE */
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 100; /* Asegura que no tape otros elementos */
+  }
+
+  /* 🔹 MOSTRAR MENÚ CUANDO ESTÉ ACTIVO */
+  .navbar-menu.is-active {
+    display: flex;
+    height: auto; /* Se adapta al contenido */
+  }
+
+  /* 🔹 ESTILOS MEJORADOS PARA LOS ENLACES DEL MENÚ */
+  .custom-navbar-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  /* 🔹 CADA ELEMENTO DEL MENÚ */
+  .custom-navbar-item {
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 90%;
+    text-align: center;
+    word-wrap: break-word;
+    cursor: pointer;
+  }
+
+  /* 🔹 ANIMACIÓN DEL MENÚ HAMBURGUESA AL ABRIR */
+  .navbar-burger.is-active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar-burger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-burger.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}

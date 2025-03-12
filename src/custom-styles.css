@@ -1,0 +1,18 @@
+/* Sobrescribir estilos de Bulma */
+.button.is-primary {
+    background-color: #000000 !important; /* Cambia el color del botón primario */
+  }
+  
+  .title {
+    color: #000000; /* Cambia el color del título */
+  }
+  
+  /* Estilos globales personalizados */
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .custom-container {
+    padding: 21px;
+    background-color: #f5f5f5;
+  }

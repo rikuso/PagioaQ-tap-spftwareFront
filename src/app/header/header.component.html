@@ -1,0 +1,30 @@
+<nav class="navbar custom-navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        
+        <img src="../../../logo/logo-negro.png" alt="Logo" class="custom-logo">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span> 
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start custom-navbar-start">
+        
+     
+          @if(pages.length > 0){
+            @for(page of pages; track page.id){
+              <a class="navbar-item custom-navbar-item" (click)="goToService(page.title)" >
+                {{ page.title }}
+              </a>
+            }
+          } @else {
+            <a [routerLink]="['/']">No cargo el menú</a>
+          }
+
+      </div>
+    </div>
+  </nav>

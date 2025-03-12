@@ -1,0 +1,108 @@
+<!-- blog.component.html -->  
+<div class="hero-services">
+    <div class="hero-content">
+      <h1>Inicio</h1>
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+        <title>right-arrow</title>
+        <g fill="#ffffff"> <!-- Cambiar el color de la flecha a blanco -->
+          <path d="M14.707,1.879a1,1,0,0,0-1.414,0L11.879,3.293a1,1,0,0,0,0,1.414L31.172,24,11.879,43.293a1,1,0,0,0,0,1.414l1.414,1.414a1,1,0,0,0,1.414,0L36.121,24.707a1,1,0,0,0,0-1.414Z" fill="#ffffff"></path>
+        </g>
+      </svg>
+      <h1>Contacto</h1>
+    </div>
+  </div>
+<div class="contact-container" data-aos="fade-up">
+    <h1 data-aos="fade-right">Contáctanos</h1>
+    <p data-aos="fade-right" data-aos-delay="100">Si tienes alguna pregunta o necesitas más información, no dudes en ponerte en contacto con nosotros.</p>
+  
+    <form class="form" [formGroup]="contactoForm" (ngSubmit)="enviarFormulario()">
+        <div class="form-group" data-aos="fade-right" data-aos-delay="200">
+            <label>
+                    <input type="text"  class="form-control" formControlName="name" required>
+                    <span>Nombre</span>
+                    @if (contactoForm.get('name')?.invalid && contactoForm.get('name')?.touched) {
+                        <small class="error-message">El nombre es requerido</small>
+                    }
+            </label>
+        </div>
+        <div  class="form-group" data-aos="fade-right" data-aos-delay="300">
+            <label>
+                <input type="email" class="form-control" formControlName="email" required>
+                <span>Email</span>
+                @if (contactoForm.get('email')?.invalid && contactoForm.get('email')?.touched) {
+                    <small class="error-message">Ingresa un email válido</small>
+                }
+            </label>
+        </div>
+      
+       
+      <div class="form-group" data-aos="fade-right" data-aos-delay="400">
+         <label>
+          <input type="tel" class="form-control" formControlName="celphone" required>
+          <span>Celular</span>
+          @if (contactoForm.get('celphone')?.invalid && contactoForm.get('celphone')?.touched) {
+            <small class="error-message">El celular es requerido</small>
+          }
+        </label>
+      </div>
+       
+      <div  class="form-group" data-aos="fade-right" data-aos-delay="500">
+        <label>
+            <textarea rows="3" class="form-control" formControlName="message" required></textarea>
+            <span>Mensaje</span>
+            @if (contactoForm.get('message')?.invalid && contactoForm.get('message')?.touched) {
+                <small class="error-message">El mensaje es requerido</small>
+            }
+        </label>
+      </div>
+       
+      
+        <!-- Mensajes de estado -->
+        @if (mensajeExito) {
+          <div class="success-message">
+            ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
+          </div>
+        }
+      
+        @if (mensajeError) {
+          <div class="error-message">
+            Hubo un problema al enviar tu mensaje. Por favor, intenta de nuevo.
+          </div>
+        }
+      
+        <button type="submit" class="btn btn-primary" [disabled]="enviando" data-aos="zoom-in" data-aos-delay="600">
+          <span class="top-key"></span>
+          <span class="text">{{ enviando ? 'Enviando...' : 'Enviar' }}</span>
+          <span class="bottom-key-1"></span>
+          <span class="bottom-key-2"></span>
+        </button>
+      </form>
+      
+  
+    <!-- Redes Sociales -->
+    <div class="social-media" data-aos="fade-up" data-aos-delay="700">
+      <a href="https://facebook.com/profile.php?id=61573588761824" target="_blank" data-aos="zoom-in" data-aos-delay="800">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><title>facebook</title><g fill="#f5f5f5"><path d="M16,2c-7.732,0-14,6.268-14,14c0,6.566,4.52,12.075,10.618,13.588v-9.31h-2.887v-4.278h2.887v-1.843c0-4.765,2.156-6.974,6.835-6.974c.887,0,2.417,.174,3.043,.348v3.878c-.33-.035-.904-.052-1.617-.052-2.296,0-3.183,.87-3.183,3.13v1.513h4.573l-.786,4.278h-3.787v9.619c6.932-.837,12.304-6.74,12.304-13.897,0-7.732-6.268-14-14-14Z"></path></g></svg>
+      </a>
+      <a href="https://instagram.com/qtapsoftware/" target="_blank" data-aos="zoom-in" data-aos-delay="900">
+        <svg
+          xml:space="preserve"
+          viewBox="0 0 16 16"
+          class="bi bi-instagram"
+          fill="f5f5f5"
+          height="16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="f5f5f5"
+            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+          ></path>
+        </svg>
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=+573116231415&amp;text=interesado%20por%20saber%20mas%20de%20q%20tap" target="_blank" data-aos="zoom-in" data-aos-delay="1000">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><title>whatsapp</title><g fill="#f5f5f5"><path d="M25.873,6.069c-2.619-2.623-6.103-4.067-9.814-4.069C8.411,2,2.186,8.224,2.184,15.874c-.001,2.446,.638,4.833,1.852,6.936l-1.969,7.19,7.355-1.929c2.026,1.106,4.308,1.688,6.63,1.689h.006c7.647,0,13.872-6.224,13.874-13.874,.001-3.708-1.44-7.193-4.06-9.815h0Zm-9.814,21.347h-.005c-2.069,0-4.099-.557-5.87-1.607l-.421-.25-4.365,1.145,1.165-4.256-.274-.436c-1.154-1.836-1.764-3.958-1.763-6.137,.003-6.358,5.176-11.531,11.537-11.531,3.08,.001,5.975,1.202,8.153,3.382,2.177,2.179,3.376,5.077,3.374,8.158-.003,6.359-5.176,11.532-11.532,11.532h0Zm6.325-8.636c-.347-.174-2.051-1.012-2.369-1.128-.318-.116-.549-.174-.78,.174-.231,.347-.895,1.128-1.098,1.359-.202,.232-.405,.26-.751,.086-.347-.174-1.464-.54-2.788-1.72-1.03-.919-1.726-2.054-1.929-2.402-.202-.347-.021-.535,.152-.707,.156-.156,.347-.405,.52-.607,.174-.202,.231-.347,.347-.578,.116-.232,.058-.434-.029-.607-.087-.174-.78-1.88-1.069-2.574-.281-.676-.567-.584-.78-.595-.202-.01-.433-.012-.665-.012s-.607,.086-.925,.434c-.318,.347-1.213,1.186-1.213,2.892s1.242,3.355,1.416,3.587c.174,.232,2.445,3.733,5.922,5.235,.827,.357,1.473,.571,1.977,.73,.83,.264,1.586,.227,2.183,.138,.666-.1,2.051-.839,2.34-1.649,.289-.81,.289-1.504,.202-1.649s-.318-.232-.665-.405h0Z" fill-rule="evenodd"></path></g></svg>
+      </a>
+    </div>
+  </div>
+  

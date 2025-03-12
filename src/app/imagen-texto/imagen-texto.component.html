@@ -1,0 +1,12 @@
+<div class="card" data-aos="fade-up">
+  <div class="align" data-aos="fade-right" data-aos-delay="100">
+    <span class="red" data-aos="zoom-in" data-aos-delay="200"></span>
+    <span class="yellow" data-aos="zoom-in" data-aos-delay="300"></span>
+    <span class="green" data-aos="zoom-in" data-aos-delay="400"></span>
+  </div>
+  <h1 data-aos="fade-right" data-aos-delay="500">Blog de Q-Tap Software</h1>
+  <h2 data-aos="fade-right" data-aos-delay="600">{{ post[0]?.title }}</h2>
+  <p data-aos="fade-right" data-aos-delay="700"><strong>Autor:</strong> {{ post[0]?.author }}</p>
+  <p data-aos="fade-right" data-aos-delay="800">{{ post[0]?.content }}...</p>
+  <button class="read-more-button" (click)="goToService(post[0].title)" data-aos="fade-up" data-aos-delay="900">Leer más</button>
+</div>

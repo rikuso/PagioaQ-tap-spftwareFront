@@ -1,0 +1,38 @@
+.content {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px; /* Bordes redondeados para un mejor aspecto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+  max-width: 100%; /* Asegura que el contenido no se desborde */
+  box-sizing: border-box; /* Incluye el padding y el borde en el ancho y alto */
+}
+
+::ng-deep .styled-content h1 {
+  color: black !important;
+  font-size: 2rem !important;
+}
+
+::ng-deep .styled-content p {
+  color: black !important;
+  font-size: 1.2rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .content {
+    padding: 2.3rem;
+    border-radius: 50px; /* Reduce el radio de los bordes en pantallas pequeñas */
+  }
+
+  ::ng-deep .styled-content h1 {
+    color: black !important;
+    font-size: 1.25rem; /* Ajusta el tamaño del título para pantallas pequeñas */
+  }
+
+  ::ng-deep .styled-content p {
+    color: black !important;
+    font-size: 1.2rem !important;
+    font-size: 0.875rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
+  }
+}
