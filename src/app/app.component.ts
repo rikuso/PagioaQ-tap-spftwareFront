@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FotterComponent } from './fotter/fotter.component';
@@ -12,7 +12,6 @@ import 'aos/dist/aos.css';
   standalone: true,
   imports: [
     RouterOutlet,
-    RouterLink,
     RouterModule,
     HeaderComponent,
     FotterComponent,
