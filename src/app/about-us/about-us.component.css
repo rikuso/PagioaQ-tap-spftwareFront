@@ -1,190 +1,191 @@
-/* Asegurar que el body y el html ocupen toda la pantalla */
-html, body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Contenedor principal */
-.blog-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-/* Sección Hero */
+/* hero-services.component.css */
 .hero-services {
-  background-color: #000000; /* Fondo negro */
-  color: #ffffff; /* Texto blanco */
-  padding: 120px 20px;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  min-height: 400px;
+  background-color: #000000; /* Fondo oscuro */
+  color: #fff; /* Texto blanco para contraste */
+  padding: 90px 20px; /* Aumentar significativamente el padding vertical */
+  text-align: center; /* Centrar el texto */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para mayor profundidad */
+  min-height: 400px; /* Altura mínima aumentada */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Centrar el contenido verticalmente */
 }
+
 .hero-content {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
   align-items: center;
-  justify-content: center;
-  gap: 15px;
+  justify-content: center; /* Centrar los elementos */
+  gap: 15px; /* Aumentar el espacio entre los elementos */
 }
 
 .hero-services h1 {
-  font-size: 3rem;
-  margin: 0;
-  font-weight: bold;
+  font-size: 3rem; /* Tamaño del título aumentado */
+  margin: 0; /* Eliminar margen para alinear correctamente */
+  font-weight: bold; /* Texto en negrita para mayor impacto */
 }
 
 .hero-services svg {
-  width: 32px;
-  height: 32px;
+  width: 32px; /* Aumentar el tamaño del SVG */
+  height: 32px; /* Aumentar el tamaño del SVG */
 }
 
+/* === Contenedor Base === */
+.qtap-objectives-container {
+  padding: clamp(1.5rem, 5vw, 3rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  position: relative;
+}
 
-/* Contenedor de Sobre Nosotros */
-.about-us-container {
-  width: 100%; /* Corregido para evitar problemas con el viewport */
-  min-height: 100vh;
+/* === Título Animado === */
+.qtap-title {
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  color: #000;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  text-align: center;
+}
+
+.qtap-title::after {
+  content: '';
+  width: clamp(80px, 30%, 150px);
+  height: 5px;
+  background: linear-gradient(90deg, #007bff, #00c853);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.qtap-title:hover::after {
+  width: clamp(100px, 40%, 200px);
+}
+
+/* === Estilo de la Lista === */
+.qtap-benefits-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+}
+
+/* === Estilo de Cada Elemento === */
+.qtap-benefit-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(135deg, #f5f5f5 40%, #fff 100%);
-  padding: 40px;
-  box-sizing: border-box;
+  align-items: flex-start;
+  background: #f8f9fa;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  animation: fadeInRight 0.6s forwards ease-out;
 }
-/* Animación de fondo */
-.about-us-container::before {
+
+.qtap-benefit-item:nth-child(1) { animation-delay: 0.1s; }
+.qtap-benefit-item:nth-child(2) { animation-delay: 0.2s; }
+.qtap-benefit-item:nth-child(3) { animation-delay: 0.3s; }
+.qtap-benefit-item:nth-child(4) { animation-delay: 0.4s; }
+
+.qtap-benefit-item::before {
   content: '';
   position: absolute;
-  width: 150%;
-  height: 150%;
-  top: -25%;
-  left: -25%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.05) 100%);
-  z-index: 0;
-  animation: bgMove 8s infinite alternate linear;
-}
-@keyframes bgMove {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-/* Lado izquierdo: Información sobre la empresa */
-.about-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  z-index: 1;
-  animation: fadeInLeft 1s ease-in-out;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(90deg, #007bff, #00c853);
+  opacity: 0.8;
 }
 
-/* Lado derecho: Objetivos */
-.about-right {
-  flex: 1;
+.qtap-benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* === Íconos Animados === */
+.qtap-benefit-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.9);
-  border-left: 4px solid #ff6600;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-  text-align: center;
-  position: relative;
-  border-radius: 10px;
-  animation: fadeInRight 1s ease-in-out;
+  margin-right: 15px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Título con efecto */
-.about-right h2 {
-  font-size: 2.5rem;
-  color: rgb(0, 0, 0);
-  margin-bottom: 20px;
-  position: relative;
-  text-transform: uppercase;
-}
-/* Línea decorativa debajo del título */
-.about-right h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #ff6600;
-  margin: 10px auto 0;
-  animation: underlineExpand 1s ease-in-out forwards;
-}
-@keyframes underlineExpand {
-  from { width: 0; }
-  to { width: 60px; }
+.qtap-benefit-icon i {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  animation: iconPulse 2s infinite;
 }
 
-/* Objetivos con iconos animados */
-.objective {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  opacity: 0;
-  animation: fadeInText 1.5s ease-in-out forwards;
-  transition: transform 0.3s ease-in-out;
+/* === Colores de los Íconos === */
+.qtap-benefit-item:nth-child(1) .qtap-benefit-icon i { color: #007bff; }
+.qtap-benefit-item:nth-child(2) .qtap-benefit-icon i { color: #ff9800; }
+.qtap-benefit-item:nth-child(3) .qtap-benefit-icon i { color: #00c853; }
+.qtap-benefit-item:nth-child(4) .qtap-benefit-icon i { color: #ff4a57; }
+
+/* === Contenido === */
+.qtap-benefit-content {
+  flex: 1;
+  text-align: left;
 }
 
-.objective:hover {
-  transform: scale(1.05);
+.qtap-benefit-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 700;
+  color: #000;
 }
 
-.objective img {
-  width: 70px;
-  height: auto;
-  animation: float 2s infinite alternate ease-in-out;
-}
-/* 🔥 Animación de entrada */
-@keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-50px); }
-  to { opacity: 1; transform: translateX(0); }
+.qtap-benefit-content p {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.6;
+  font-weight: 400;
 }
 
+/* === Animaciones === */
 @keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-@keyframes fadeInText {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
-/* 🔹 RESPONSIVE DESIGN */
+/* === Responsive === */
+@media (max-width: 768px) {
+  .qtap-benefits-list { grid-template-columns: 1fr; }
+  .qtap-benefit-item { flex-direction: column; text-align: center; }
+  .qtap-benefit-icon { margin: 0 auto 10px; }
+}
 
-/* Móviles y Tablets */
-@media (max-width: 1024px) {
-  .about-us-container {
-      flex-direction: column; /* Apilar en columnas */
-      min-height: auto; /* Se ajusta al contenido */
-  }
-
-  .about-left, .about-right {
-      width: 100%; /* Ocupar todo el ancho en móviles */
-      padding: 20px;
-      border-left: none;
-      text-align: center;
-  }
-
-  .about-right {
-      border-top: 2px solid #ddd; /* Línea divisoria en móviles */
+@media (min-width: 1024px) {
+  .qtap-benefit-item:hover .qtap-benefit-icon {
+    transform: rotate(360deg);
+    transition: transform 0.8s ease;
   }
 }

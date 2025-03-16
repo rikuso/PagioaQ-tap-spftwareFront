@@ -3,40 +3,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px; /* Reducir el padding para pantallas pequeñas */
+  padding: 10px; /* Reducir el padding para pantallas pequeñas */
 }
 
-/* hero-services.component.css */
 .hero-services {
-  background-color: #000000; /* Fondo oscuro */
-  color: #fff; /* Texto blanco para contraste */
-  padding: 120px 20px; /* Aumentar significativamente el padding vertical */
-  text-align: center; /* Centrar el texto */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para mayor profundidad */
-  min-height: 400px; /* Altura mínima aumentada */
+  background-color: #000;
+  color: #fff;
+  padding: 60px 10px; /* Ajustar el padding vertical */
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra más ligera */
+  min-height: 300px; /* Altura mínima ajustada */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrar el contenido verticalmente */
+  justify-content: center;
 }
 
 .hero-content {
   display: flex;
-  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center; /* Centrar los elementos */
-  gap: 15px; /* Aumentar el espacio entre los elementos */
+  justify-content: center;
+  gap: 10px; /* Ajustar el espacio entre los elementos */
 }
 
 .hero-services h1 {
-  font-size: 3rem; /* Tamaño del título aumentado */
-  margin: 0; /* Eliminar margen para alinear correctamente */
-  font-weight: bold; /* Texto en negrita para mayor impacto */
+  font-size: 2.5rem; /* Tamaño del título ajustado */
+  margin: 0;
+  font-weight: bold;
 }
 
 .hero-services svg {
-  width: 32px; /* Aumentar el tamaño del SVG */
-  height: 32px; /* Aumentar el tamaño del SVG */
+  width: 24px;
+  height: 24px;
 }
 
 .blog-content {
@@ -45,48 +44,44 @@
   margin: 20px auto;
 }
 
-/* Estilos para pantallas pequeñas */
 @media (max-width: 600px) {
   .hero-services {
-    padding: 100px 10px; /* Ajustar el padding para pantallas pequeñas */
-    min-height: 350px; /* Reducir la altura mínima para pantallas pequeñas */
+    padding: 50px 10px;
+    min-height: 250px;
   }
 
   .hero-services h1 {
-    font-size: 2.5rem; /* Reducir el tamaño del título */
+    font-size: 2rem;
   }
 
   .hero-services svg {
-    width: 28px; /* Reducir el tamaño del SVG */
-    height: 28px; /* Reducir el tamaño del SVG */
+    width: 20px;
+    height: 20px;
   }
 }
 
-/* Estilos para pantallas medianas */
 @media (min-width: 601px) and (max-width: 1024px) {
   .hero-services {
-    padding: 110px 20px; /* Ajustar el padding para pantallas medianas */
-    min-height: 375px; /* Ajustar la altura mínima para pantallas medianas */
+    padding: 70px 20px;
+    min-height: 300px;
   }
 
   .hero-services h1 {
-    font-size: 2.75rem; /* Ajustar el tamaño del título */
+    font-size: 2.25rem;
   }
 }
 
-/* Estilos para pantallas grandes */
 @media (min-width: 1025px) {
   .hero-services {
-    padding: 120px 20px; /* Ajustar el padding para pantallas grandes */
-    min-height: 400px; /* Ajustar la altura mínima para pantallas grandes */
+    padding: 80px 20px;
+    min-height: 350px;
   }
 
   .hero-services h1 {
-    font-size: 3rem; /* Ajustar el tamaño del título */
+    font-size: 2.5rem;
   }
 }
 
-/*aca*/
 .contact-container {
   max-width: 600px;
   margin: 0 auto;
@@ -95,7 +90,7 @@
 }
 
 .contact-container h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -114,6 +109,10 @@
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #000;
+}
+.form-group span {
+  color: #000000; /* Asegura que el texto de los span sea negro */
 }
 
 .form-group input,
@@ -123,6 +122,7 @@
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: #000;
 }
 
 .form-group textarea {
@@ -147,15 +147,15 @@
 }
 
 .social-media a svg {
-  fill: #ffffff; /* Blanco */
-  width: 32px;
-  height: 32px;
+  fill: #fff;
+  width: 24px;
+  height: 24px;
 }
 
 .social-media {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   margin-top: 20px;
 }
 
@@ -166,12 +166,6 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: #007bff; /* Azul, cámbialo si es necesario */
+  background-color: #007bff;
   border-radius: 50%;
-}
-
-.social-media a svg {
-  width: 24px;
-  height: 24px;
-  fill: white; /* Color de los íconos */
 }

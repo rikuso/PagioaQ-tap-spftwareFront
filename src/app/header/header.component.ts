@@ -31,9 +31,9 @@ export class HeaderComponent implements AfterViewInit {
 
   goToService(pageTitle: string) {
     const route = '/' + this.convertToSlug(pageTitle);  
-  
-    this.router.navigate([route]);
-   
+    this.router.navigate([route]).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   ngAfterViewInit() {

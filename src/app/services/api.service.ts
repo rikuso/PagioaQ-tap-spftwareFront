@@ -8,7 +8,10 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   private apiUrl = 'https://backend-qtap.vercel.app/api';
+<<<<<<< HEAD
  //private apiUrl  = 'http://localhost:3000/api';
+=======
+>>>>>>> 5ec3c02 (actualizacion optimizacion)
   
   constructor(private http: HttpClient) { }
 //paginacion

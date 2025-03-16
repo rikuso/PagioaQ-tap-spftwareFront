@@ -1,28 +1,40 @@
-/* Estilos para el header */
+/* === Reset y Ajustes Generales === */
+* {
+  margin: 0;
+  padding: 140;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === Contenedor del Header === */
 .header-container {
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para el main-container */
+/* === Contenedor Principal === */
 .main-container {
   position: relative;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  width: 100%;
 }
 
-/* Hero con video de fondo */
-.hero.has-video-background {
+/* === Sección Hero con Video de Fondo === */
+.hero {
   position: relative;
-  overflow: hidden;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
+/* Contenedor del video - técnica revisada */
 .hero-video {
   position: absolute;
   top: 0;
@@ -30,88 +42,79 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  overflow: hidden;
 }
 
+/* Técnica de video que funciona en todos los dispositivos */
 .hero-video video {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
   object-fit: cover;
+  z-index: -1;
 }
 
-.hero {
-  position: relative;
-  min-height: 60vh;
-  padding: 20px;
-  width: 100%;
-}
-
+/* === Hero Body === */
 .hero-body {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  max-width: 1200px;
-  padding: 100px 20px 20px;
-  box-sizing: border-box;
+  padding: 140px 20px;
+  background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente para mejorar legibilidad */
 }
 
-/* Diseño de columnas */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* === Diseño de Columnas (Flexbox) === */
 .columns {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
   width: 100%;
-  max-width: 1200px;
-  gap: 20px;
 }
 
 .column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex: 1;
-  padding: 10px;
   min-width: 280px;
 }
 
+.column.is-half {
+  flex-basis: calc(50% - 15px);
+}
+
 .column.is-form {
-  flex: 1.5;
-  max-width: 600px;
+  flex-basis: calc(50% - 15px);
 }
 
-/* Estilos para el contenido */
-.content {
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+/* === Componentes Personalizados === */
+app-info-text,
+app-contact-form {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-
-/* Contenedor del Logo (posición fija debajo del video) */
+/* === Botón FAQ Flotante === */
 .logo-container {
-  display: flex;
-  flex-direction: column; /* Para que el texto quede debajo */
-  justify-content: center;
-  align-items: center;
   position: absolute;
-  bottom: -50px; /* Ajuste para mantenerlo debajo */
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  transition: bottom 0.3s ease-in-out;
 }
 
-/* Botón circular del logo */
 .faq-button {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   border: none;
   background-color: #ffffff;
@@ -119,25 +122,130 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.151);
-  position: relative;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s;
 }
 
-/* SVG dentro del botón */
+.faq-button:hover {
+  transform: scale(1.1);
+}
+
 .faq-button svg {
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 70%;
   fill: #212121;
 }
 
-/* Animación al pasar el mouse */
-.faq-button:hover svg {
-  animation: jello-vertical 0.7s both;
+/* === Tooltip === */
+.tooltip {
+  position: absolute;
+  top: -20px;
+  opacity: 0;
+  background: linear-gradient(147deg, #ffffff 0%, #c0c0c0 74%);
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  transition: opacity 0.3s, top 0.3s;
+  pointer-events: none;
+  font-size: 14px;
 }
 
+.faq-button:hover .tooltip {
+  top: -40px;
+  opacity: 1;
+}
 
+/* === 📌 Media Queries Mejoradas para Responsividad === */
 
-/* Animación de efecto "rebote" */
+/* 📱 Dispositivos Móviles (hasta 768px) */
+@media (max-width: 768px) {
+  .hero-body {
+    padding: 130px 15px;
+  }
+  
+  .columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .column.is-half,
+  .column.is-form {
+    flex-basis: 100%;
+  }
+  
+  .faq-button {
+    width: 70px;
+    height: 70px;
+  }
+  
+  /* Forzar el video a ser visible en móviles */
+  .hero-video {
+    display: block !important;
+    height: 100% !important;
+    visibility: visible !important;
+  }
+  
+  .hero-video video {
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+  }
+  
+  /* Solución alternativa con fallback a imagen */
+  .hero {
+    background-image: url('../../../../public/video/fondo.jpg'); /* Imagen de respaldo */
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* 📱 Tablets y Pantallas Medianas (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-body {
+    padding: 150px 30px;
+  }
+  
+  .columns {
+    flex-wrap: wrap;
+  }
+  
+  .column.is-half,
+  .column.is-form {
+    flex-basis: calc(50% - 15px);
+  }
+}
+
+/* 💻 Pantallas Grandes (+1025px) */
+@media (min-width: 1025px) {
+  .hero-body {
+    padding: 160px 40px;
+  }
+}
+
+/* === Solución de Forzado para Video === */
+/* Esto fuerza el video a permanecer visible en cualquier tamaño de pantalla */
+@media (max-width: 1024px) {
+  .hero-video {
+    display: block !important;
+    height: 100% !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .hero-video video {
+    display: block !important;
+    height: 100% !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    object-fit: cover !important;
+  }
+}
+
+/* === Animaciones Suaves === */
 @keyframes jello-vertical {
   0% { transform: scale3d(1, 1, 1); }
   30% { transform: scale3d(0.75, 1.25, 1); }
@@ -148,137 +256,7 @@
   100% { transform: scale3d(1, 1, 1); }
 }
 
-/* Estilos del tooltip */
-.tooltip {
-  position: absolute;
-  top: -20px;
-  opacity: 0;
-  background-color: #fcfcfc;
-  background-image: linear-gradient(147deg, #ffffff 0%, #c0c0c0 74%);
-  color: rgb(0, 0, 0);
-  padding: 5px 10px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s, top 0.3s;
-  pointer-events: none;
-  letter-spacing: 0.5px;
-}
-
-/* Tooltip visible al pasar el mouse */
-.faq-button:hover .tooltip {
-  top: -40px;
-  opacity: 1;
-}
-
-/* 📌 MEDIA QUERIES PARA RESPONSIVE */
-
-/* Tablets y pantallas medianas (601px - 1024px) */
-@media (max-width: 1024px) {
-  .logo-container {
-    top: 102vh;
-  }
-
-  .faq-button {
-    width: 80px;
-    height: 80px;
-  }
-}
-@media (max-width: 768px) {
-  .faq-button {
-    width: 80px;
-    height: 80px;
-  }
-
-  .tooltip {
-    font-size: 12px;
-    padding: 4px 8px;
-  }
-}
-
-/* Móviles grandes (480px - 600px) */
-@media (max-width: 600px) {
-  .logo-container {
-    top: 110vh;
-  }
-
-  .faq-button {
-    width: 75px;
-    height: 75px;
-  }
-
-  .hero-body {
-    padding: 80px 20px 20px;
-  }
-
-  .columns {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .hero.has-video-background {
-    background-image: url('../../../../public/video/fondo.jpg');
-    background-size: cover;
-    background-position: center;
-  }
-
-  .hero-video {
-    display: none;
-  }
-}
-
-/* Móviles medianos (480px o menos) */
-@media (max-width: 480px) {
-  .logo-container {
-    top: 120vh;
-  }
-
-  .faq-button {
-    width: 70px;
-    height: 70px;
-  }
-
-  .hero-body {
-    padding: 60px 20px 20px;
-  }
-
-  .columns {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .content {
-    padding: 1rem;
-    border-radius: 8px;
-  }
-}
-
-/* Móviles pequeños (menos de 420px) */
-@media (max-width: 420px) {
-  .logo-container {
-    top: 135vh;
-  }
-
-  .faq-button {
-    width: 65px;
-    height: 65px;
-  }
-}
-
-/* Pantallas ultra pequeñas (menos de 360px) */
-@media (max-width: 360px) {
-  .logo-container {
-    top: 120vh;
-  }
-
-  .faq-button {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-/* Animaciones */
+/* Evita que AOS tenga problemas con la visibilidad */
 [data-aos] {
   opacity: 1 !important;
   visibility: visible !important;

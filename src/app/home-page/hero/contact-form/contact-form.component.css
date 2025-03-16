@@ -3,14 +3,16 @@
   flex-direction: column;
   gap: 10px;
   max-width: 350px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 45px;
   position: relative;
 }
-
+h3 ,p {
+  color: #000000;
+}
 .message {
-  color: rgba(88, 87, 87, 0.822);
+  color: rgb(0, 0, 0);
   font-size: 14px;
 }
 
@@ -28,7 +30,7 @@
   width: 100%;
   padding: 10px 10px 20px 10px;
   outline: 0;
-  border: 1px solid rgba(105, 105, 105, 0.397);
+  border: 1px solid rgba(105, 105, 105, 0.9);
   border-radius: 5px;
 }
 
@@ -36,7 +38,7 @@
   position: absolute;
   left: 10px;
   top: 15px;
-  color: grey;
+  color: rgb(0, 0, 0);
   font-size: 0.9em;
   cursor: text;
   transition: 0.3s ease;
@@ -70,7 +72,7 @@
   position: absolute;
   left: 10px;
   top: 50px;
-  color: grey;
+  color: rgb(0, 0, 0);
   font-size: 0.9em;
   cursor: text;
   transition: 0.3s ease;

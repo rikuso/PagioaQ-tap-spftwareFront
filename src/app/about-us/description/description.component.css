@@ -1,66 +1,238 @@
+/* Base styles for the description container */
 .description-container {
-  padding: 20px;
-  max-width: 800px;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  max-width: 900px;
   margin: 0 auto;
-  font-family: 'Roboto', sans-serif; /* Tipografía moderna y limpia */
+  font-family: 'Roboto', sans-serif;
   line-height: 1.8;
-}
-.description-container h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
-  font-size: 2.25rem; /* Tamaño de fuente grande para destacar */
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif; /* Tipografía moderna y limpia */
-  text-transform: uppercase; /* Letras en mayúscula para mayor impacto */
-  letter-spacing: 1px; /* Espaciado entre letras para mejor legibilidad */
-  border-bottom: 2px solid #4CAF50; /* Línea decorativa */
-  display: inline-block;
-  padding-bottom: 5px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
+/* Header styles */
+.description-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.description-container h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  position: relative;
+}
+
+/* Modern underline effect */
+.description-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #4CAF50, #007bff);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.description-container h2:hover::after {
+  width: 120px;
+}
+
+/* Content styles */
+.description-content {
+  position: relative;
+  z-index: 1;
+}
 
 .description-container p {
-  margin-bottom: 20px;
-  text-align: justify;
-  font-size: 1.25rem; /* Tamaño de fuente más grande para mejor legibilidad */
-  color: #444; /* Color de texto más oscuro para mejor contraste */
+  margin-bottom: 1.5rem;
+  text-align: left;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #444;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
 }
 
-/* Estilos para pantallas pequeñas */
-@media (max-width: 600px) {
+.description-container p:last-child {
+  margin-bottom: 0;
+}
+
+/* Special styling for the first paragraph */
+.highlight-text {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  color: #333;
+  line-height: 1.6;
+  animation-delay: 0.2s !important;
+}
+
+/* Company name styling */
+.company-name {
+  font-weight: 700;
+  color: #4CAF50;
+  position: relative;
+  display: inline-block;
+}
+
+/* Animation for highlighted text */
+.company-name::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4CAF50;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.company-name:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Background accent */
+.description-container::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, rgba(0, 123, 255, 0.05) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Apply animations with delays for paragraphs */
+.description-container p:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.description-container p:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.description-container p:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
   .description-container {
-    padding: 10px;
+    background-color: #1a202c;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   }
-
+  
   .description-container h2 {
-    font-size: 1.75rem;
+    color: #f8f9fa;
   }
+  
   .description-container p {
-    font-size: 1.1rem;
+    color: #e2e8f0;
+  }
+  
+  .highlight-text {
+    color: #f1f1f1;
+  }
+  
+  .company-name {
+    color: #6fcf97;
+  }
+  
+  .company-name::after {
+    background-color: #6fcf97;
   }
 }
 
-/* Estilos para pantallas medianas */
-@media (min-width: 601px) and (max-width: 1024px) {
+/* Responsive design */
+/* Mobile phones */
+@media (max-width: 480px) {
   .description-container {
-    padding: 15px;
+    padding: 1.25rem;
+    border-radius: 8px;
   }
-  .description-container h2 {
-    font-size: 2rem;
+  
+  .description-header {
+    margin-bottom: 1.5rem;
   }
-  .description-container p {
-    font-size: 1.2rem;
+  
+  .description-container h2::after {
+    width: 60px;
+  }
+  
+  .description-container h2:hover::after {
+    width: 80px;
   }
 }
 
-/* Estilos para pantallas grandes */
+/* Small tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .description-container {
+    padding: 1.5rem;
+  }
+  
+  .description-container::before {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Large tablets and laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .description-container {
+    padding: 2rem;
+  }
+}
+
+/* Desktops and large screens */
 @media (min-width: 1025px) {
   .description-container {
-    padding: 20px;
+    padding: 3rem;
   }
+  
+  .description-container::before {
+    width: 150px;
+    height: 150px;
+  }
+}
 
-  .description-container p {
-    font-size: 1.25rem;
+/* Print styles */
+@media print {
+  .description-container {
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  .description-container::before {
+    display: none;
+  }
+  
+  .description-container h2::after {
+    background: #000;
+    height: 1px;
   }
 }

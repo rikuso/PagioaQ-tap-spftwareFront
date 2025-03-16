@@ -1,24 +1,150 @@
+/* === Contenedor Principal === */
 .transformamos-ideas-container {
   display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se acomoden en pantallas pequeñas */
-  gap: 20px; /* Espacio entre las columnas */
-
-  padding: 50px; /* Añade espacio alrededor de los elementos */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 50px;
+  position: relative; /* Permite posicionar el logo */
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }
 
+/* Hace que los elementos se adapten al tamaño de la pantalla */
 .transformamos-ideas-container > * {
-  flex: 1 1 calc(50% - 20px); /* Asegura que cada columna ocupe el 50% del ancho, restando el gap */
-  box-sizing: border-box; /* Incluye el padding y el borde en el ancho y alto */
+  flex: 1 1 calc(50% - 20px); /* Ocupa 50% del ancho con margen */
+  box-sizing: border-box;
+  min-width: 300px; /* Evita que se achiquen demasiado */
 }
 
-/* Media query para pantallas pequeñas */
-@media (max-width: 768px) {
+/* === Contenedor del Logo (Siempre Encima y Centrado) === */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px; /* Mantiene el logo siempre arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+/* === Botón Circular del Logo === */
+.faq-button {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s;
+}
+
+.faq-button:hover {
+  transform: scale(1.1);
+}
+
+/* === SVG dentro del Botón === */
+.faq-button svg {
+  width: 70%;
+  height: 70%;
+  fill: #212121;
+}
+
+/* === Tooltip === */
+.tooltip {
+  position: absolute;
+  top: -20px;
+  opacity: 0;
+  background: linear-gradient(147deg, #ffffff 0%, #c0c0c0 74%);
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  transition: opacity 0.3s, top 0.3s;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+/* Tooltip visible al pasar el mouse */
+.faq-button:hover .tooltip {
+  top: -40px;
+  opacity: 1;
+}
+
+/* === 📌 Media Queries para Responsividad === */
+
+/* Pantallas grandes (1024px en adelante) */
+@media (min-width: 1024px) {
   .transformamos-ideas-container {
-    padding: 50px;
-    flex-direction: column; /* Hace que los elementos se apilen verticalmente */
+    gap: 30px;
+  }
+
+  .logo-container {
+    top: 15px;
+  }
+
+  .faq-button {
+    width: 100px;
+    height: 100px;
+  }
+
+  .faq-button svg {
+    width: 75%;
+    height: 75%;
+  }
+}
+
+/* Tablets y pantallas medianas (768px - 1023px) */
+@media (max-width: 1023px) {
+  .transformamos-ideas-container {
+    flex-direction: column; /* Apila los elementos */
+    padding: 40px;
   }
 
   .transformamos-ideas-container > * {
-    flex: 1 1 100%; /* Asegura que cada columna ocupe el 100% del ancho */
+    flex: 1 1 100%; /* Cada elemento ocupa el 100% del ancho */
+  }
+
+  .logo-container {
+    top: 5px; /* Ajusta la posición */
+  }
+
+  .faq-button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .faq-button svg {
+    width: 65%;
+    height: 65%;
+  }
+}
+
+/* Móviles (menos de 768px) */
+@media (max-width: 768px) {
+  .transformamos-ideas-container {
+    padding: 20px;
+  }
+
+  .logo-container {
+    top: 0px;
+  }
+
+  .faq-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .faq-button svg {
+    width: 60%;
+    height: 60%;
   }
 }
