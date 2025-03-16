@@ -1,88 +1,190 @@
-/* blog.component.css */
+/* Asegurar que el body y el html ocupen toda la pantalla */
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor principal */
 .blog-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px; /* Reducir el padding para pantallas pequeñas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Sección Hero */
+.hero-services {
+  background-color: #000000; /* Fondo negro */
+  color: #ffffff; /* Texto blanco */
+  padding: 120px 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.hero-services h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.hero-services svg {
+  width: 32px;
+  height: 32px;
+}
+
+
+/* Contenedor de Sobre Nosotros */
+.about-us-container {
+  width: 100%; /* Corregido para evitar problemas con el viewport */
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f5f5 40%, #fff 100%);
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+/* Animación de fondo */
+.about-us-container::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.05) 100%);
+  z-index: 0;
+  animation: bgMove 8s infinite alternate linear;
+}
+@keyframes bgMove {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* Lado izquierdo: Información sobre la empresa */
+.about-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1;
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+/* Lado derecho: Objetivos */
+.about-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-left: 4px solid #ff6600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+  animation: fadeInRight 1s ease-in-out;
+}
+
+
+/* Título con efecto */
+.about-right h2 {
+  font-size: 2.5rem;
+  color: rgb(0, 0, 0);
+  margin-bottom: 20px;
+  position: relative;
+  text-transform: uppercase;
+}
+/* Línea decorativa debajo del título */
+.about-right h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff6600;
+  margin: 10px auto 0;
+  animation: underlineExpand 1s ease-in-out forwards;
+}
+@keyframes underlineExpand {
+  from { width: 0; }
+  to { width: 60px; }
+}
+
+/* Objetivos con iconos animados */
+.objective {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-in-out forwards;
+  transition: transform 0.3s ease-in-out;
+}
+
+.objective:hover {
+  transform: scale(1.05);
+}
+
+.objective img {
+  width: 70px;
+  height: auto;
+  animation: float 2s infinite alternate ease-in-out;
+}
+/* 🔥 Animación de entrada */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔹 RESPONSIVE DESIGN */
+
+/* Móviles y Tablets */
+@media (max-width: 1024px) {
+  .about-us-container {
+      flex-direction: column; /* Apilar en columnas */
+      min-height: auto; /* Se ajusta al contenido */
   }
-  
-  /* hero-services.component.css */
-  .hero-services {
-    background-color: #000000; /* Fondo oscuro */
-    color: #fff; /* Texto blanco para contraste */
-    padding: 120px 20px; /* Aumentar significativamente el padding vertical */
-    text-align: center; /* Centrar el texto */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para mayor profundidad */
-    min-height: 400px; /* Altura mínima aumentada */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centrar el contenido verticalmente */
+
+  .about-left, .about-right {
+      width: 100%; /* Ocupar todo el ancho en móviles */
+      padding: 20px;
+      border-left: none;
+      text-align: center;
   }
-  
-  .hero-content {
-    display: flex;
-    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
-    align-items: center;
-    justify-content: center; /* Centrar los elementos */
-    gap: 15px; /* Aumentar el espacio entre los elementos */
+
+  .about-right {
+      border-top: 2px solid #ddd; /* Línea divisoria en móviles */
   }
-  
-  .hero-services h1 {
-    font-size: 3rem; /* Tamaño del título aumentado */
-    margin: 0; /* Eliminar margen para alinear correctamente */
-    font-weight: bold; /* Texto en negrita para mayor impacto */
-  }
-  
-  .hero-services svg {
-    width: 32px; /* Aumentar el tamaño del SVG */
-    height: 32px; /* Aumentar el tamaño del SVG */
-  }
-  
-  .blog-content {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-  }
-  
-  /* Estilos para pantallas pequeñas */
-  @media (max-width: 600px) {
-    .hero-services {
-      padding: 100px 10px; /* Ajustar el padding para pantallas pequeñas */
-      min-height: 350px; /* Reducir la altura mínima para pantallas pequeñas */
-    }
-  
-    .hero-services h1 {
-      font-size: 2.5rem; /* Reducir el tamaño del título */
-    }
-  
-    .hero-services svg {
-      width: 28px; /* Reducir el tamaño del SVG */
-      height: 28px; /* Reducir el tamaño del SVG */
-    }
-  }
-  
-  /* Estilos para pantallas medianas */
-  @media (min-width: 601px) and (max-width: 1024px) {
-    .hero-services {
-      padding: 110px 20px; /* Ajustar el padding para pantallas medianas */
-      min-height: 375px; /* Ajustar la altura mínima para pantallas medianas */
-    }
-  
-    .hero-services h1 {
-      font-size: 2.75rem; /* Ajustar el tamaño del título */
-    }
-  }
-  
-  /* Estilos para pantallas grandes */
-  @media (min-width: 1025px) {
-    .hero-services {
-      padding: 120px 20px; /* Ajustar el padding para pantallas grandes */
-      min-height: 400px; /* Ajustar la altura mínima para pantallas grandes */
-    }
-  
-    .hero-services h1 {
-      font-size: 3rem; /* Ajustar el tamaño del título */
-    }
-  }
-  
+}

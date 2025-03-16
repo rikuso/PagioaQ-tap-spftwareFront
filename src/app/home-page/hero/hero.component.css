@@ -1,0 +1,285 @@
+/* Estilos para el header */
+.header-container {
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el main-container */
+.main-container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Hero con video de fondo */
+.hero.has-video-background {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero {
+  position: relative;
+  min-height: 60vh;
+  padding: 20px;
+  width: 100%;
+}
+
+.hero-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 100px 20px 20px;
+  box-sizing: border-box;
+}
+
+/* Diseño de columnas */
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 20px;
+}
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 10px;
+  min-width: 280px;
+}
+
+.column.is-form {
+  flex: 1.5;
+  max-width: 600px;
+}
+
+/* Estilos para el contenido */
+.content {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+
+/* Contenedor del Logo (posición fija debajo del video) */
+.logo-container {
+  display: flex;
+  flex-direction: column; /* Para que el texto quede debajo */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -50px; /* Ajuste para mantenerlo debajo */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  transition: bottom 0.3s ease-in-out;
+}
+
+/* Botón circular del logo */
+.faq-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.151);
+  position: relative;
+}
+
+/* SVG dentro del botón */
+.faq-button svg {
+  width: 80%;
+  height: 80%;
+  fill: #212121;
+}
+
+/* Animación al pasar el mouse */
+.faq-button:hover svg {
+  animation: jello-vertical 0.7s both;
+}
+
+
+
+/* Animación de efecto "rebote" */
+@keyframes jello-vertical {
+  0% { transform: scale3d(1, 1, 1); }
+  30% { transform: scale3d(0.75, 1.25, 1); }
+  40% { transform: scale3d(1.25, 0.75, 1); }
+  50% { transform: scale3d(0.85, 1.15, 1); }
+  65% { transform: scale3d(1.05, 0.95, 1); }
+  75% { transform: scale3d(0.95, 1.05, 1); }
+  100% { transform: scale3d(1, 1, 1); }
+}
+
+/* Estilos del tooltip */
+.tooltip {
+  position: absolute;
+  top: -20px;
+  opacity: 0;
+  background-color: #fcfcfc;
+  background-image: linear-gradient(147deg, #ffffff 0%, #c0c0c0 74%);
+  color: rgb(0, 0, 0);
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s, top 0.3s;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+}
+
+/* Tooltip visible al pasar el mouse */
+.faq-button:hover .tooltip {
+  top: -40px;
+  opacity: 1;
+}
+
+/* 📌 MEDIA QUERIES PARA RESPONSIVE */
+
+/* Tablets y pantallas medianas (601px - 1024px) */
+@media (max-width: 1024px) {
+  .logo-container {
+    top: 102vh;
+  }
+
+  .faq-button {
+    width: 80px;
+    height: 80px;
+  }
+}
+@media (max-width: 768px) {
+  .faq-button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .tooltip {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+/* Móviles grandes (480px - 600px) */
+@media (max-width: 600px) {
+  .logo-container {
+    top: 110vh;
+  }
+
+  .faq-button {
+    width: 75px;
+    height: 75px;
+  }
+
+  .hero-body {
+    padding: 80px 20px 20px;
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero.has-video-background {
+    background-image: url('../../../../public/video/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero-video {
+    display: none;
+  }
+}
+
+/* Móviles medianos (480px o menos) */
+@media (max-width: 480px) {
+  .logo-container {
+    top: 120vh;
+  }
+
+  .faq-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .hero-body {
+    padding: 60px 20px 20px;
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .content {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+}
+
+/* Móviles pequeños (menos de 420px) */
+@media (max-width: 420px) {
+  .logo-container {
+    top: 135vh;
+  }
+
+  .faq-button {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* Pantallas ultra pequeñas (menos de 360px) */
+@media (max-width: 360px) {
+  .logo-container {
+    top: 120vh;
+  }
+
+  .faq-button {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Animaciones */
+[data-aos] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}

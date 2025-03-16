@@ -1,17 +1,12 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
-import { ServiciosQtapComponent } from './servicios-qtap/servicios-qtap.component';
-import { BlogComponent } from './blog/blog.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { ContactComponent } from './contact/contact.component';
 
 export const routes: Routes = [
-  { path: '', component: HomePageComponent },  // Cambio importante aquí
-  { path: 'inicio', component: HomePageComponent },
-  { path: 'servicios', component: ServiciosQtapComponent },
-  { path: 'nosotros', component: AboutUsComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: 'contacto', component: ContactComponent},
+  { path: '', loadComponent: () => import('./home-page/home-page.component').then(m => m.HomePageComponent) },
+  { path: 'inicio', loadComponent: () => import('./home-page/home-page.component').then(m => m.HomePageComponent) },
+  { path: 'servicios', loadComponent: () => import('./servicios-qtap/servicios-qtap.component').then(m => m.ServiciosQtapComponent) },
+  { path: 'nosotros', loadComponent: () => import('./about-us/about-us.component').then(m => m.AboutUsComponent) },
+  { path: 'blog', loadComponent: () => import('./blog/blog.component').then(m => m.BlogComponent) },
+  { path: 'contacto', loadComponent: () => import('./contact/contact.component').then(m => m.ContactComponent) },
   { path: '**', redirectTo: '' } // Manejo de rutas no encontradas
-  // Otras rutas...
 ];
+//LAZY LOADING MEJOR Y OPTIMIZA LA NAVEGACION

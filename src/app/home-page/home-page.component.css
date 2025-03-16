@@ -1,47 +1,103 @@
-/* Contenedor principal */
-.main-container {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+/* Definir variables globales */
+:root {
+  --padding-small: 100px 10px;
+  --padding-medium: 110px 20px;
+  --padding-large: 120px 20px;
+  --title-size-small: 2.5rem;
+  --title-size-medium: 2.75rem;
+  --title-size-large: 3rem;
+  --svg-size-small: 28px;
+  --svg-size-large: 32px;
+}
+
+/* Contenedor principal del blog */
+.blog-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Asegura que todo se alinee desde arriba */
+  padding: 20px; /* Reducido para móviles */
 }
 
-/* Estilos para el logo */
-app-logo {
-  width: 150px; /* Ajusta el tamaño del logo */
-  height: auto;
-  margin-top: 20px; /* Da espacio arriba del logo */
-  z-index: 10; /* Asegura que esté visible */
+/* Sección Hero */
+.hero-services {
+  background-color: #000000;
+  color: #fff;
+  padding: var(--padding-large);
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Estilos para hero */
-app-hero {
+/* Contenedor del contenido */
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Títulos */
+.hero-services h1 {
+  font-size: var(--title-size-large);
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Iconos SVG */
+.hero-services svg {
+  width: var(--svg-size-large);
+  height: var(--svg-size-large);
+}
+
+/* Contenido del blog */
+.blog-content {
   width: 100%;
-  min-height: 60vh;
-  position: relative;
+  max-width: 800px;
+  margin: 20px auto;
 }
 
-/* Sección 1 */
-app-seccion1 {
-  width: 100%;
-  min-height: 40vh;
-  position: relative;
-}
+/* 📌 Estilos para móviles (hasta 600px) */
+@media (max-width: 600px) {
+  .hero-services {
+    padding: var(--padding-small);
+    min-height: 350px;
+  }
 
-/* 📌 RESPONSIVE - Ajustes en pantallas pequeñas */
-@media (max-width: 768px) {
-  app-logo {
-      width: 120px; /* Reduce el tamaño del logo en pantallas pequeñas */
+  .hero-services h1 {
+    font-size: var(--title-size-small);
+  }
+
+  .hero-services svg {
+    width: var(--svg-size-small);
+    height: var(--svg-size-small);
   }
 }
 
-@media (max-width: 480px) {
-  app-logo {
-      width: 100px; /* Aún más pequeño en pantallas muy pequeñas */
-      margin-top: 10px; /* Menos espacio arriba */
+/* 📌 Estilos para tablets (601px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .hero-services {
+    padding: var(--padding-medium);
+    min-height: 375px;
+  }
+
+  .hero-services h1 {
+    font-size: var(--title-size-medium);
+  }
+}
+
+/* 📌 Estilos para pantallas grandes (1025px en adelante) */
+@media (min-width: 1025px) {
+  .hero-services {
+    padding: var(--padding-large);
+    min-height: 400px;
+  }
+
+  .hero-services h1 {
+    font-size: var(--title-size-large);
   }
 }

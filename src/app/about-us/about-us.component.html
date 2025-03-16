@@ -1,17 +1,47 @@
-<!-- blog.component.html -->  
+<!-- Sección Hero -->
 <div class="hero-services">
-    <div class="hero-content">
+  <div class="hero-content">
       <h1>Inicio</h1>
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-        <title>right-arrow</title>
-        <g fill="#ffffff"> <!-- Cambiar el color de la flecha a blanco -->
-          <path d="M14.707,1.879a1,1,0,0,0-1.414,0L11.879,3.293a1,1,0,0,0,0,1.414L31.172,24,11.879,43.293a1,1,0,0,0,0,1.414l1.414,1.414a1,1,0,0,0,1.414,0L36.121,24.707a1,1,0,0,0,0-1.414Z" fill="#ffffff"></path>
-        </g>
+          <title>right-arrow</title>
+          <g fill="currentColor">
+              <path d="M14.707,1.879a1,1,0,0,0-1.414,0L11.879,3.293a1,1,0,0,0,0,1.414L31.172,24,11.879,43.293a1,1,0,0,0,0,1.414l1.414,1.414a1,1,0,0,0,1.414,0L36.121,24.707a1,1,0,0,0,0-1.414Z"></path>
+          </g>
       </svg>
       <h1>Nosotros</h1>
-    </div>
   </div>
+</div>
+
+<!-- Contenedor de Sobre Nosotros -->
 <div class="about-us-container">
-    <app-description></app-description>
-   <app-differentiators></app-differentiators>
+  <!-- Lado izquierdo: Información de la empresa -->
+  <div class="about-left">
+      <app-description></app-description>
+      <app-differentiators></app-differentiators>
+  </div>
+
+  <!-- Lado derecho: Objetivos con ilustraciones -->
+  <div class="about-right">
+      <h2>Nuestros Objetivos</h2>
+
+      <div class="objective">
+          <img src="../../../svg/zorro.svg" alt="Zorro - Innovación">
+          <p><strong>Innovación Ágil:</strong> Como un <strong>zorro</strong>, buscamos soluciones inteligentes y adaptables para cada cliente.</p>
+      </div>
+
+      <div class="objective">
+          <img src="../../../svg/halcon.svg" alt="Halcón - Optimización">
+          <p><strong>Optimización Precisa:</strong> Con la visión de un <strong>halcón</strong>, afinamos cada detalle para maximizar el rendimiento.</p>
+      </div>
+
+      <div class="objective">
+          <img src="../../../svg/lobo.svg" alt="Lobo - Colaboración">
+          <p><strong>Trabajo en Equipo:</strong> Como una <strong>manada de lobos</strong>, avanzamos juntos con nuestros clientes y equipo.</p>
+      </div>
+
+      <div class="objective">
+          <img src="../../../svg/puma.svg" alt="Jaguar - Expansión Global">
+          <p><strong>Expansión Rápida:</strong> Con la velocidad de un <strong>jaguar</strong>, llevamos Q-Tap Software al siguiente nivel.</p>
+      </div>
+  </div>
 </div>

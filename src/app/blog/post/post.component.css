@@ -2,8 +2,10 @@
   display: flex;
   gap: 20px;
 }
-
-/* 📌 COLUMNA IZQUIERDA (POSTS Y PAGINACIÓN) */
+h2, h3, h4, h5, h6, p {
+  color: #000000; /* Texto negro */
+}
+/* COLUMNA IZQUIERDA (POSTS Y PAGINACIÓN) */
 .left-column {
   flex: 2; /* Ocupa más espacio */
   display: flex;
@@ -11,14 +13,14 @@
   width: 100%;
 }
 
-/* 📌 CONTENEDOR DE POSTS (GRID RESPONSIVE) */
+/*CONTENEDOR DE POSTS (GRID RESPONSIVE) */
 .posts-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste dinámico */
   gap: 20px;
 }
 
-/* 📌 TARJETAS DE LOS POSTS */
+/*TARJETAS DE LOS POSTS */
 .post-card {
   background: white;
   padding: 15px;

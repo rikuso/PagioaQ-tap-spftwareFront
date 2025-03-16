@@ -7,14 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  private apiUrl = 'https://backend-qtap.vercel.app/api';
-
+  //private apiUrl = 'https://backend-qtap.vercel.app/api';
+private apiUrl  = 'http://localhost:3000/api';
   
   constructor(private http: HttpClient) { }
-
+//paginacion
   getData(): Observable<any[]> { 
     return this.http.get<any[]>(`${this.apiUrl}/pages`);
   }
+  //meta paginacion
+  getPageBySlug(slug: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/pages/${slug}`);
+  }
+  //blog
   getDataBlog(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/blog`);
   }

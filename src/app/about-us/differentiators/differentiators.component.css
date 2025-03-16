@@ -1,92 +1,136 @@
 .differentiators-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+.differentiators-container h2 {
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+.differentiators-container h2::after {
+  content: '';
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #4CAF50, #007bff);
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  border-radius: 5px;
+}
+
+.differentiators-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.differentiators-container li {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInRight 0.6s forwards ease-in-out;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.differentiators-container li:hover {
+  transform: scale(1.02);
+}
+
+.differentiators-container li::before {
+  font-family: "Font Awesome 5 Free"; /* Se requiere FontAwesome */
+  font-weight: 900;
+  margin-right: 12px;
+  font-size: 24px;
+  animation: checkmarkBounce 1s infinite;
+}
+
+.differentiators-container li:nth-child(1)::before { content: "\f4ff"; color: #4CAF50; } /* Ícono de personalización */
+.differentiators-container li:nth-child(2)::before { content: "\f013"; color: #007bff; } /* Ícono de tecnología */
+.differentiators-container li:nth-child(3)::before { content: "\f53f"; color: #ff9800; } /* Ícono de creatividad */
+.differentiators-container li:nth-child(4)::before { content: "\f4c0"; color: #ff4a57; } /* Ícono de acompañamiento */
+.differentiators-container li:nth-child(5)::before { content: "\f201"; color: #673ab7; } /* Ícono de resultados */
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes checkmarkBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* 📱 Estilos Responsivos */
+
+/* Pantallas pequeñas */
+@media (max-width: 600px) {
+  .differentiators-container {
+    padding: 10px;
   }
   .differentiators-container h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-    font-size: 2.5rem; /* Tamaño más grande para destacar */
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif; /* Tipografía adecuada para copywriting */
-    text-transform: uppercase; /* Letras en mayúscula para mayor impacto */
-    letter-spacing: 1px; /* Espaciado entre letras para mejor legibilidad */
-  }
-  
-  .differentiators-container ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .differentiators-container li {
-    margin-bottom: 15px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .differentiators-container li::before {
-    content: '✅';
-    margin-right: 10px;
-    color: #4CAF50;
-    font-size: 24px;
-  }
-  
-  /* Estilos para pantallas pequeñas */
-  @media (max-width: 600px) {
-    
-
-    .differentiators-container {
-      padding: 10px;
-    }
-    .differentiators-container h2 {
     font-size: 2rem;
   }
-    .differentiators-container li {
-      font-size: 16px;
-    }
-  
-    .differentiators-container li::before {
-      font-size: 20px;
-    }
+  .differentiators-container li {
+    font-size: 1rem;
+    padding: 10px;
   }
-  
-  /* Estilos para pantallas medianas */
-  @media (min-width: 601px) and (max-width: 1024px) {
-    
-    .differentiators-container {
-      padding: 15px;
-    }
-    .differentiators-container h2 {
-        font-size: 2.25rem;
-      }
-  
-    .differentiators-container li {
-      font-size: 18px;
-    }
-  
-    .differentiators-container li::before {
-      font-size: 22px;
-    }
+  .differentiators-container li::before {
+    font-size: 20px;
   }
-  
-  /* Estilos para pantallas grandes */
-  @media (min-width: 1025px) {
-    .differentiators-container {
-      padding: 20px;
-    }  
-    .differentiators-container h2 {
-        font-size: 2.5rem;
-      }
-  
-    .differentiators-container li {
-      font-size: 20px;
-    }
-  
-    .differentiators-container li::before {
-      font-size: 24px;
-    }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .differentiators-container {
+    padding: 15px;
   }
-  
+  .differentiators-container h2 {
+    font-size: 2.25rem;
+  }
+  .differentiators-container li {
+    font-size: 1.2rem;
+  }
+  .differentiators-container li::before {
+    font-size: 22px;
+  }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1025px) {
+  .differentiators-container {
+    padding: 20px;
+  }
+  .differentiators-container h2 {
+    font-size: 2.5rem;
+  }
+  .differentiators-container li {
+    font-size: 1.3rem;
+  }
+  .differentiators-container li::before {
+    font-size: 24px;
+  }
+}

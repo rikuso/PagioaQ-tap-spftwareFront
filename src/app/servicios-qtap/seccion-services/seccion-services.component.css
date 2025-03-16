@@ -1,4 +1,4 @@
-/* seccion-services.component.css */
+/* Fuentes */
 @font-face {
   font-family: 'Montserrat';
   src: url('/assets/fonts/Montserrat-Regular.woff2') format('woff2'),
@@ -14,42 +14,141 @@
   font-weight: 600;
   font-style: normal;
 }
-.seccion-services-container {
+
+/* Estilos generales */
+body {
   font-family: 'Montserrat', sans-serif;
-}
-/* Contenedor principal con diseño de cuadrícula */
-.seccion-services-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
-  grid-template-rows: auto auto; /* Dos filas */
-  gap: 20px; /* Espacio entre las secciones */
-  padding: 20px; /* Espaciado interno */
-  min-height: 100vh; /* Ocupar altura completa */
+  background-color: #f8f9fa; /* Gris claro */
+  color: #000000; /* Texto negro */
+  margin: 0;
+  padding: 0;
 }
 
+h2, h3, h4, h5, h6, p {
+  color: #000000; /* Texto negro */
+}
+
+/* blog.component.css */
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* hero-services.component.css */
+.hero-services {
+  background-color: #000000; /* Fondo negro */
+  color: #ffffff; /* Texto blanco */
+  padding: 120px 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.hero-services h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.hero-services svg {
+  width: 32px;
+  height: 32px;
+}
+
+.blog-content {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .hero-services {
+    padding: 100px 10px;
+    min-height: 350px;
+  }
+
+  .hero-services h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-services svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Estilos para pantallas medianas */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .hero-services {
+    padding: 110px 20px;
+    min-height: 375px;
+  }
+
+  .hero-services h1 {
+    font-size: 2.75rem;
+  }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1025px) {
+  .hero-services {
+    padding: 120px 20px;
+    min-height: 400px;
+  }
+
+  .hero-services h1 {
+    font-size: 3rem;
+  }
+}
+
+/* 📌 Contenedor principal */
+.seccion-services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* 🔹 Títulos y párrafos */
 .seccion-descripcion h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem; /* Tamaño llamativo */
-  font-weight: 600; /* Negrita */
+  font-size: 2rem;
+  font-weight: 600;
   color: #007bff; /* Azul profesional */
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .seccion-descripcion p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem; /* Ligeramente más grande */
+  font-size: 1.1rem;
   font-weight: 400;
-  color: #333; /* Color oscuro para mejor legibilidad */
-  line-height: 1.6; /* Espaciado para lectura cómoda */
+  line-height: 1.6;
   text-align: justify;
   max-width: 90%;
+  margin: 0 auto;
 }
-/* Estilos para cada item */
+
+/* 🔹 Tarjetas de servicio */
 .seccion-services-item {
-  background-color: #f4f4f4;
-  border-radius: 8px;
+  background-color: #f8f9fa; /* Gris claro */
+  border-radius: 10px;
   padding: 20px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -57,14 +156,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Estilos de etiquetas del menú */
+.seccion-services-item:hover {
+  transform: translateY(-5px);
+}
+
+/* 🔹 Botones de menú */
 .menu-label {
-  background-color: #fff;
-  border-radius: 45px;
+  background-color: #ffffff; /* Blanco */
+  border-radius: 50px;
   padding: 10px 20px;
-  color: #000;
+  color: #000000; /* Texto negro */
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -74,63 +178,62 @@
 }
 
 .menu-label:hover {
-  background-color: #f0f0f0;
+  background-color: #f8f9fa; /* Gris claro */
   transform: translateY(-2px);
 }
 
-/* Estilo para el servicio activo/seleccionado */
 .menu-label.active {
-  background-color: #007bff;
-  color: white;
-  border: 2px solid #0056b3;
+  background-color: #007bff; /* Azul profesional */
+  color: #ffffff; /* Texto blanco */
+  border: 2px solid #0056b3; /* Azul más oscuro */
   box-shadow: 0 2px 8px rgba(0, 123, 255, 0.5);
 }
 
-/* Estilos de imagen */
+/* 🔹 Imágenes */
 .seccion-services-item img {
   max-width: 100%;
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
 .seccion-services-item img:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
-/* Tarjeta de contacto */
-.card {
-  width: 100%;
-  max-width: 350px;
-  background: #000;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-  color: white;
+/*seccion agregada*/
+.seccion-contacto {
+  width: 73vw;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?technology,business');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
   position: relative;
-  transition: transform 0.3s ease;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* 🔹 Tarjeta de contacto */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 1.2s ease-in-out;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-}
-
-.card b {
-  position: absolute;
-  inset: 6px;
-  background: rgba(0, 0, 0, 0.1); 
-  z-index: 2;
-  border-radius: 10px;
-}
-
-.card .content {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
 }
 
 .content .title {
@@ -138,7 +241,7 @@
   font-size: 1em;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #fff;
+  color: #ffffff; /* Texto blanco */
 }
 
 .content .title span {
@@ -146,87 +249,83 @@
   font-size: 0.9em;
   display: block;
   margin-top: 5px;
-  color: #ffffff;
+  color: #ffffff; /* Texto blanco */
 }
 
+/* Botón Contactar */
 .contact-btn {
-  background: #fff;
-  color: #222;
+  background: #ff4a57;
+  color: #fff;
   border: none;
-  padding: 10px 15px;
-  font-size: 1em;
-  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 15px;
   border-radius: 5px;
-  margin-top: 10px;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.3s ease-in-out, transform 0.2s;
 }
 
 .contact-btn:hover {
-  background: #f0f0f0;
-  transform: scale(1.05);
+  background: #e03a47;
+  transform: scale(1.1);
 }
 
-.content .sci {
+/* Íconos Redes Sociales */
+.sci {
   display: flex;
   justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.sci a {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  padding: 0;
-}
-
-.sci li {
-  list-style: none;
-}
-
-.sci li a {
-  text-decoration: none;
-  color: rgb(255, 255, 255);
+  justify-content: center;
+  width: 50px;
+  height: 50px;
   background: rgb(0, 0, 0);
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  transition: 0.3s;
-  font-size: 1.2em;
+  border-radius: 50%;
+  transition: background 0.3s, transform 0.3s;
 }
 
-.sci li a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 3px 5px rgba(255, 255, 255, 0.2);
+.sci a:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.2);
 }
 
-/* 🟢 MEDIA QUERIES PARA HACERLO RESPONSIVE */
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
 
-/* 📱 Móviles (menos de 768px) */
+@keyframes slideUp {
+  from {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+/* 🔹 RESPONSIVE DESIGN */
+
+/* 📱 Móviles (hasta 768px) */
 @media screen and (max-width: 768px) {
   .seccion-services-container {
-    grid-template-columns: 1fr; /* Una sola columna en móviles */
-    grid-template-rows: auto;
-    gap: 15px;
+    grid-template-columns: 1fr;
+    padding: 20px;
   }
 
-  .seccion-services-item {
-    padding: 15px;
-  }
-
-  /* Establecer el orden en dispositivos móviles */
-  .seccion-servicios {
-    order: 1; /* Primero */
-  }
-
-  .seccion-imagen {
-    order: 2; /* Segundo */
-  }
-
-  .seccion-descripcion {
-    order: 3; /* Tercero */
-  }
-
-  .seccion-contacto {
-    order: 4; /* Último, como se solicitó */
+  .seccion-descripcion h2 {
+    font-size: 1.6rem;
   }
 
   .menu-label {
@@ -238,7 +337,7 @@
     max-width: 100%;
   }
 
-  .sci li a {
+  .sci a {
     width: 35px;
     height: 35px;
   }
@@ -251,12 +350,12 @@
     gap: 15px;
   }
 
-  .seccion-services-item {
-    padding: 18px;
+  .seccion-descripcion h2 {
+    font-size: 1.8rem;
   }
 }
 
-/* Ajustes para pantallas más grandes */
+/* Ajustes para pantallas grandes */
 @media screen and (min-width: 1025px) {
   .seccion-services-container {
     max-width: 1200px;
