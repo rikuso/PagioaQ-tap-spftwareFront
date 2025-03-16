@@ -1,67 +1,68 @@
 <div class="blog-content">
-  <!-- Columna izquierda (más grande) con posts -->
+  <!-- Columna izquierda (Posts) -->
   <div class="left-column" data-aos="fade-up">
-    <h2 data-aos="fade-right">Artículos Recientes</h2>
+    <h2 class="section-title" data-aos="fade-right"> Artículos Recientes</h2>
 
-    <!-- Mostrar el post actual -->
-    <div class="post-card" *ngIf="currentPost" data-aos="fade-up" data-aos-delay="100">
+    <!-- Post Actual -->
+    <div class="post-card highlight" *ngIf="currentPost" data-aos="fade-up" data-aos-delay="100">
       <div class="post-image" *ngIf="currentPost.imageUrl">
-        <img [src]="currentPost.imageUrl" [alt]="currentPost.title" data-aos="zoom-in">
+        <img [src]="currentPost.imageUrl" [alt]="currentPost.title" class="image-effect">
       </div>
       <div class="post-content">
-        <h3 data-aos="fade-right">{{ currentPost.title }}</h3>
+        <h3>{{ currentPost.title }}</h3>
         <div class="post-meta">
-          <span class="post-date" data-aos="fade-right" data-aos-delay="200">{{ currentPost.date }}</span>
+          <span class="post-date">{{ currentPost.date }}</span>
           <div class="post-tags" *ngIf="currentPost.tags">
-            <span class="tag" *ngFor="let tag of currentPost.tags; trackBy: trackById" data-aos="fade-right" data-aos-delay="300">{{ tag }}</span>
+            <span class="tag" *ngFor="let tag of currentPost.tags; trackBy: trackById">{{ tag }}</span>
           </div>
         </div>
-        <p class="post-excerpt" data-aos="fade-right" data-aos-delay="400">{{ currentPost.content }}</p>
+        <p class="post-excerpt">{{ currentPost.content }}</p>
       </div>
     </div>
+
     <ng-template #noPosts>
-      <p data-aos="fade-up">No hay artículos disponibles.</p>
+      <p class="no-content" data-aos="fade-up">No hay artículos disponibles.</p>
     </ng-template>
 
     <!-- Paginación -->
     <div class="pagination" *ngIf="posts.length > 0" data-aos="fade-up" data-aos-delay="500">
-      <button class="prev-btn" (click)="prevPage()" [disabled]="currentPage === 1" data-aos="fade-right">Anterior</button>
-      <span data-aos="fade-right" data-aos-delay="100">Página {{ currentPage }} de {{ totalPages }}</span>
-      <button class="next-btn" (click)="nextPage()" [disabled]="currentPage === totalPages" data-aos="fade-right" data-aos-delay="200">Siguiente</button>
+      <button class="prev-btn" (click)="prevPage()" [disabled]="currentPage === 1"> Anterior</button>
+      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <button class="next-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
     </div>
   </div>
 
-  <!-- Columna derecha (más pequeña) con sidebar -->
+  <!-- Columna derecha (Sidebar) -->
   <div class="right-column" data-aos="fade-left">
     <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="100">
-      <h3 data-aos="fade-right">Categorías</h3>
+      <h3> Categorías</h3>
       <ul class="categories-list" *ngIf="categories.length > 0; else noCategories">
-        <li *ngFor="let category of categories; trackBy: trackById" data-aos="fade-right" data-aos-delay="200"><a href="#">{{ category }}</a></li>
+        <li *ngFor="let category of categories; trackBy: trackById"><a href="#">{{ category }}</a></li>
       </ul>
       <ng-template #noCategories>
-        <p data-aos="fade-right">No hay categorías disponibles.</p>
+        <p> No hay categorías disponibles.</p>
       </ng-template>
     </div>
 
     <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="300">
-      <h3 data-aos="fade-right">Posts Destacados</h3>
+      <h3> Posts Destacados</h3>
       <div class="featured-posts" *ngIf="featuredPosts.length > 0; else noFeaturedPosts">
-        <div class="featured-post" *ngFor="let post of featuredPosts; trackBy: trackById" data-aos="fade-right" data-aos-delay="400">
-          <img [src]="post.imageUrl" [alt]="post.title" data-aos="zoom-in">
-          <h4 data-aos="fade-right">{{ post.title }}</h4>
+        <div class="featured-post" *ngFor="let post of featuredPosts; trackBy: trackById">
+          <img [src]="post.imageUrl" [alt]="post.title" class="image-effect">
+          <h4>{{ post.title }}</h4>
         </div>
       </div>
       <ng-template #noFeaturedPosts>
-        <p data-aos="fade-right">No hay posts destacados.</p>
+        <p> No hay posts destacados.</p>
       </ng-template>
     </div>
 
     <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="500">
-      <h3 data-aos="fade-right">Suscríbete</h3>
-      <p data-aos="fade-right">Recibe las últimas actualizaciones en tu correo.</p>
-      <form data-aos="fade-right" data-aos-delay="100">
-        <input type="email" placeholder="Tu correo electrónico" data-aos="fade-right">
-        <button type="submit" data-aos="fade-right" data-aos-delay="200">Suscribirse</button>
+      <h3> Suscríbete</h3>
+      <p>Recibe las últimas actualizaciones en tu correo.</p>
+      <form>
+        <input type="email" placeholder=" Tu correo electrónico">
+        <button type="submit"> Suscribirse</button>
       </form>
     </div>
   </div>

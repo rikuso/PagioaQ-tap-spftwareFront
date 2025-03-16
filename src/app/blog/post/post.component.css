@@ -1,115 +1,179 @@
+/* 🎨 Estilos Generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+/* 🔥 Header */
+.header {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  animation: slideDown 1s ease-in-out;
+}
+
+/* 📌 Contenedor del Blog */
 .blog-content {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
+  padding: 20px;
 }
-h2, h3, h4, h5, h6, p {
-  color: #000000; /* Texto negro */
-}
-/* COLUMNA IZQUIERDA (POSTS Y PAGINACIÓN) */
+
+/* 📖 Posts */
 .left-column {
-  flex: 2; /* Ocupa más espacio */
+  flex: 2;
   display: flex;
   flex-direction: column;
-  width: 100%;
-}
-
-/*CONTENEDOR DE POSTS (GRID RESPONSIVE) */
-.posts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste dinámico */
   gap: 20px;
 }
 
-/*TARJETAS DE LOS POSTS */
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  border-bottom: 3px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+  animation: fadeInLeft 1s ease-in-out;
+}
+
 .post-card {
   background: white;
   padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  position: relative;
+  overflow: hidden;
+}
+.post-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* 📌 PAGINACIÓN (BOTONES CENTRADOS) */
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+.image-effect {
   width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.image-effect:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
-.prev-btn, .next-btn {
-  background: #007BFF;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.prev-btn:disabled, .next-btn:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-/* 📌 COLUMNA DERECHA (SIDEBAR) */
+/* 📌 Sidebar */
 .right-column {
-  flex: 1; /* Ocupa menos espacio */
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* 📌 MEDIA QUERIES PARA RESPONSIVE */
+.sidebar-widget {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeInLeft 1s ease-in-out forwards;
+}
 
-/* 🖥️ Pantallas grandes (desde 1024px) */
-@media (min-width: 1024px) {
-  .blog-content {
-      flex-direction: row; /* Columnas en fila */
+.categories-list li a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.categories-list li a:hover {
+  color: #0056b3;
+  transform: translateX(5px);
+}
+
+/* 🌀 Animaciones */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
-/* 📱 Tablets y pantallas medianas (768px a 1023px) */
+@keyframes fadeInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
 @media (max-width: 1023px) {
   .blog-content {
-      flex-direction: column; /* Cambia a columna */
-  }
-
-  .left-column, .right-column {
-      width: 100%; /* Ocupan todo el ancho */
-  }
-}
-
-/* 📲 Móviles grandes (480px a 767px) */
-@media (max-width: 767px) {
-  .posts-container {
-      grid-template-columns: 1fr; /* Una sola columna */
-  }
-
-  .pagination {
-      flex-wrap: wrap; /* Permite que los botones se acomoden */
-  }
-
-  .prev-btn, .next-btn {
-      width: 100%; /* Ocupan todo el ancho en pantallas pequeñas */
-  }
-}
-
-/* 📳 Móviles pequeños (menos de 480px) */
-@media (max-width: 480px) {
-  .blog-content {
-      gap: 10px;
-  }
-
-  .post-card {
-      padding: 10px; /* Reduce el padding */
-  }
-
-  .pagination {
       flex-direction: column;
-      gap: 5px;
   }
+  .left-column, .right-column {
+      width: 100%;
+  }
+}
+/* Estilos para los títulos */
+.section-title::before {
+  content: "🚀"; /* O usa un ícono de Font Awesome */
+  margin-right: 8px;
+}
 
-  .prev-btn, .next-btn {
-      padding: 8px;
-  }
+.no-content::before {
+  content: "📭";
+  margin-right: 8px;
+}
+
+.sidebar-widget h3::before {
+  content: "📌";
+  margin-right: 8px;
+}
+
+/* Específico para cada título */
+.sidebar-widget:nth-child(2) h3::before { content: "⭐"; } /* Posts destacados */
+.sidebar-widget:nth-child(3) h3::before { content: "📬"; } /* Suscripción */
+
+/* Estilos para botones de paginación */
+.prev-btn::before {
+  content: "⬅️";
+  margin-right: 5px;
+}
+
+.next-btn::after {
+  content: "➡️";
+  margin-left: 5px;
+}
+.section-title::before {
+  content: "\f135"; /* Ícono de cohete en Font Awesome */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 8px;
 }

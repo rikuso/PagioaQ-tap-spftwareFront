@@ -23,7 +23,6 @@ export class PostComponent implements OnInit {
     this.apiService.getBlogPost().subscribe({
       next: (data) => {
         this.posts = Array.isArray(data) ? data : [];
-        console.log('Datos obtenidos:', this.posts);
 
         // Calcular el número total de páginas
         this.totalPages = this.posts.length;
